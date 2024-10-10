@@ -1,26 +1,89 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Wave</title>
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="main.js"></script>
-  </head>
-  <body>
-    <main class="conteiner">
-      <h1>Principal <span class="special">Login</span></h1>
-      <form>
-        <section class="form-control">
-            <input type="text" required>
-            <label>Email</label>
-        </section>
-        <section class="form-control">
-            <input type="password" required>
-            <label>Password</label>
-        </section>
-        <button class="btn">Login</button>
-      </form>
-    </main>
-  </body>
-</html>
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+body {
+  background-color: rgb(245, 208, 208);
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.conteiner {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.conteiner h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.special {
+  background: crimson;
+  padding: 5px 20px;
+  color: #fff;
+}
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 400px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.form-control input {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #000;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: crimson;
+}
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: crimson;
+}
+.btn {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  background-color: crimson;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.btn:hover {
+  background-color: rgb(207, 41, 74);
+}
+.btn:focus {
+  outline: 0;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: crimson;
+  transform: translateY(-30px);
+}
